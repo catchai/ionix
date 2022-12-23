@@ -1,0 +1,51 @@
+appName: helloapp
+
+namespace: default
+
+configmap: 
+  name: helmappconfigmapv1.1
+  data: 
+    CUSTOM_HEADER: "esta app fue desplegada con helm!"
+
+replicaCount: 1
+
+image:
+  repository: 63038688/hello-world
+  tag: latest
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name:
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  name: hello-world
+  type: LoadBalancer
+  externalPort: 80
+  internalPort: 8080
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

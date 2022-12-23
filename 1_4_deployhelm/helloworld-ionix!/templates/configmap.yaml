@@ -1,0 +1,9 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ .Values.configmap.name }}
+  namespaces: {{ .Values.namespace }}
+data:
+  BG_COLOR: '#12181b'  
+  FONT_COLOR: '#FFFFFF'
+  CUSTOMER_HEADER:  {{ .Values.configmap.data.CUSTOMER_HEADER }}
